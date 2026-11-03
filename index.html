@@ -1,0 +1,141 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>Fanta - Home</title>  
+    <link type="Image/x-icon" href="favicon.ico" rel="icon">  
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">  
+    <link rel="stylesheet" href="style.css">  
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">  
+    <meta charset="UTF-8">  
+</head>  
+<body>  
+    <div class="retro_screen_glowing"></div>  
+    <div class="retro_console_effect"></div>  
+    <div class="retro_screen_border"></div>  
+  
+    <div class="screen_content">  
+        <text class="console_corner" id="langs">  
+            [<text id="RU" class="lang">RU</text> / <text id="EN" class="lang">EN</text>]  
+        </text>  
+        <br>  
+        <div class="console_content">  
+            <h1 id="title">I am EYES</h1>  
+            <br>  
+            <h3 id="linux<br>progra</h3>  
+            <br>  
+            <div class="border"></div>  
+            <br>  
+            <div class="section_block">  
+                <div class="side_block">  
+                    <h3 id="about">About Me</h3>  
+                    <br>  
+                    <h5 id="skills">  
+                        - Languages: Russian, Deutsch.<br><br>  
+                    </h5>  
+                </div>  
+              <div class="side_block">
+    <h3 id="contacts">Contacts</h3>
+                  
+    <!--GitHub-->
+    <a href="https://github.com/fanta-228" target="_blank">
+        <div class="about_entry">
+            <h3>GitHub</h3>
+        </div>
+    </a>
+                  
+         <!--YouTube-->
+    <a href="https://www.youtube.com/@fanta2_2_8" target="_blank">
+        <div class="about_entry">
+            <h3>YouTube</h3>
+        </div>
+    </a>
+                  
+    <!--Telegram chanal-->
+    <a href="https://t.me/fanta2_2_8" target="_blank">
+        <div class="about_entry">
+            <h3>Telegram chanal</h3>
+        </div>
+    </a>
+
+            </div>  
+            <br>  
+            <div class="border"></div> 
+            <br>  
+        </div>  
+    </div>  
+  
+    <script>  
+        var current_lang = getBrowserLang(),  
+            beep = new Audio("beep.mp3"),  
+            locale = {  
+        RU: {
+        title: "Я Фанта",
+        bio: "Мой Сайт",
+        skills: "Переходник на GitHub\n\nПереходник на YouTube\n\nПереходник на Telegram канал",
+        about: "Обо мне",
+        contacts: "Заходи"
+    },
+        EN: {
+        title: "I am Fanta",
+        bio: "My Site",
+        skills: "GitHub adapter\n\nYouTubu channel adapter\n\nTelegram chanal adapter",
+        about: "About Me",
+        contacts: "Come in"
+    }
+                    };
+        function sleep(ms) {  
+            return new Promise(resolve => setTimeout(resolve, ms));  
+        }  
+  
+        window.onload = function () {  
+            typeText("title", getTranslationForLocale(current_lang, "title"));  
+            updateLanguageInfo();  
+        };  
+  
+        document.getElementById("langs").addEventListener("click", function () {  
+            let langs = Object.keys(locale);  
+            current_lang = langs[(langs.indexOf(current_lang) + 1) % langs.length];  
+            updateLanguageInfo();  
+            beep.play();  
+        });  
+  
+        async function typeText(id, text, interval = 100) {  
+            const element = document.getElementById(id);  
+            for (let i = 0; i <= text.length; i++) {  
+                element.textContent = text.substring(0, i);  
+                if (i < text.length)  
+                    element.textContent += "|";  
+                await sleep(interval);  
+                if (i < text.length)  
+                    element.textContent = text.substring(0, i);  
+            }  
+        }  
+  
+        async function updateLanguageInfo() {  
+            if (current_lang in locale) {  
+                let active = document.getElementsByClassName("lang");  
+                for (let i = 0; i < active.length; i++)  
+                    active[i].style.color = "inherit";  
+                let element = document.getElementById(current_lang);  
+                if (element)  
+                    element.style.color = "#00EE20";  
+                const new_lang = locale[current_lang];  
+                Object.keys(new_lang).forEach(id => {  
+                    const element = document.getElementById(id);  
+                    if (element) element.innerHTML = new_lang[id];  
+                });  
+                document.title = new_lang.title || document.title;  
+            }  
+        }  
+  
+        function getTranslationForLocale(lang, id) {  
+            return (lang in locale && id in locale[lang]) ? locale[lang][id] : undefined;  
+        }  
+  
+        function getBrowserLang() {  
+            return /ru/i.test(navigator.language || navigator.userLanguage) ? "RU" : "EN";  
+        }  
+    </script>  
+</body>  
+</html>
+
