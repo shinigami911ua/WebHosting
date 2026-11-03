@@ -1,159 +1,646 @@
-
 @font-face {
     font-family: console;
     src: url(lucida-bsod.ttf);
 }
 
-/* Global stuff */
+
+/* =========================================
+   GLOBAL
+========================================= */
 
 * {
-    margin: auto;
     box-sizing: border-box;
+
     font-family: console, 'Comic Sans MS';
-    text-align: center;
+
     color: white;
+
     text-decoration: none;
 }
+
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    background-color: black;
+
+}
+
 
 body {
-    background-color: black;
-    text-decoration: none;
+
+    overflow-x: hidden;
+
 }
+
 
 ::selection {
+
     background: white;
+
     color: black;
+
 }
 
-/* Universal blocks */
 
-.section_block {
-    display: table;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.side_block {
-    float: left;
-    width: 50%;
-}
+/* =========================================
+   MAIN SCREEN
+========================================= */
 
 .screen_content {
+
     background-color: black;
-    font-size: 20px;
-    padding: 30px;
-    display: table;
-    margin: 0 auto;
+
     width: 100%;
-    /*max-width: 1980px;*/
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    font-size: 20px;
+
 }
 
-.console_corner {
-    text-align: left;
-    display: block;
-    padding: 0 65px 0 0;
-}
+
+/* =========================================
+   CONTENT
+========================================= */
 
 .console_content {
-    padding: 0 20px 0 20px;
+
+    width: 100%;
+
     max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
 }
+
+
+/* =========================================
+   LANGUAGE
+========================================= */
+
+.console_corner {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    text-align: left;
+
+}
+
+
+.lang {
+
+    cursor: pointer;
+
+    user-select: none;
+
+}
+
+
+.lang:hover {
+
+    color: #00EE20;
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+#title {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    text-align: center !important;
+
+}
+
+
+#bio {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    text-align: center !important;
+
+}
+
+
+/* =========================================
+   TWO COLUMNS
+========================================= */
+
+.section_block {
+
+    display: flex;
+
+    flex-direction: row;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
+}
+
+
+.side_block {
+
+    flex: 0 0 calc(50% - 5px);
+
+    width: calc(50% - 5px);
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   COLUMN TITLES
+========================================= */
+
+.side_block > h3 {
+
+    margin: 0;
+
+    padding: 0;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
 
 .about_entry {
-    border-radius: 5px;
-    margin-top: 5px;
+
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 8px;
+
     border: 2px solid white;
-    margin: 10px;
+
+    border-radius: 5px;
+
     text-align: left;
+
+    overflow: hidden;
+
+    overflow-wrap: break-word;
+
+    word-break: break-word;
+
 }
+
+
+.about_entry h3,
+.about_entry h5 {
+
+    margin: 0;
+
+    padding: 0;
+
+    text-align: left;
+
+}
+
 
 .about_entry:hover {
-    background-color: rgb(53, 53, 53)
+
+    background-color: rgb(53, 53, 53);
+
 }
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================
+   BORDER
+========================================= */
 
 .border {
+
     width: 100%;
-    background-color: white;
+
     height: 2px;
+
+    margin: 0;
+
+    background-color: white;
+
 }
 
-/* Specific blocks */
+
+/* =========================================
+   SKILLS
+========================================= */
 
 #skills {
-    text-align: start;
+
+    text-align: left;
+
+    white-space: pre-line;
+
 }
 
-/* Retro screen thingy */
+
+/* =========================================
+   RETRO SCREEN
+========================================= */
 
 .old_screen_overlay {
-    background-image: url(test_mask.png);
+
     position: fixed;
+
     width: 100%;
+
     height: 100%;
+
+    background-image: url(test_mask.png);
+
     opacity: 15%;
+
     background-repeat: no-repeat;
+
     background-size: cover;
+
     pointer-events: none;
+
+    z-index: 100;
+
 }
+
 
 .retro_screen_border {
+
     position: fixed;
+
     width: 100%;
+
     height: 100%;
+
     border: 30px solid transparent;
+
     border-image-source: url(screen_transparent.png);
+
     border-image-slice: 30;
+
     border-image-outset: 0;
+
     pointer-events: none;
+
+    z-index: 9999;
+
 }
+
 
 .retro_screen_glowing {
+
     position: fixed;
+
     width: 100%;
+
     height: 100%;
-    background-image: radial-gradient(rgba(150, 150, 150, 0.4), transparent 100%);
+
+    background-image:
+        radial-gradient(
+            rgba(150, 150, 150, 0.4),
+            transparent 100%
+        );
+
     pointer-events: none;
+
+    z-index: 100;
+
 }
 
-/* Attempt to use an image for gradient. Didn't solve the optimization 
-issue. 
 
-.retro_console_effect_new {
-    position: absolute;
-    background-image: url(gradient.png);
-    width: 100%;
-    height: 100%;
-    animation: barberpole 1s linear infinite;
-    background-size:contain;
-    animation-duration: 500ms;
-    image-rendering: crisp-edges;
-    image-rendering: -moz-crisp-edges;        
-    image-rendering: -o-crisp-edges;          
-    image-rendering: -webkit-optimize-contrast; 
-    -ms-interpolation-mode: nearest-neighbor;  
-}
-
-*/
+/* =========================================
+   RETRO SCANLINES
+========================================= */
 
 .retro_console_effect {
+
     position: fixed;
+
     width: 100%;
+
     height: 100%;
-    background-image: repeating-linear-gradient(0deg, transparent 1rem, black 1.2rem);
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent 1rem,
+            black 1.2rem
+        );
+
     background-size: 200% 200%;
-    animation: barberpole 1s linear infinite;
-    animation-direction: alternate;
-    animation-duration: 500ms;
+
+    animation:
+        barberpole 500ms linear infinite alternate;
+
     pointer-events: none;
+
+    z-index: 9998;
+
 }
 
 
-#skills {
-    white-space: pre-line;
-} 
+/* =========================================
+   ANIMATION
+========================================= */
 
 @keyframes barberpole {
+
     100% {
+
         background-position: 100% 100%;
+
     }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .screen_content {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .console_content {
+
+        padding: 0 10px;
+
+    }
+
+}
+
+
+/* =========================================
+   PHONE
+   TWO COLUMNS STAY
+========================================= */
+
+@media (max-width: 700px) {
+
+    .screen_content {
+
+        padding: 20px 8px;
+
+    }
+
+
+    .console_content {
+
+        width: 100%;
+
+        padding: 0 3px;
+
+    }
+
+
+    /* TWO COLUMNS */
+
+    .section_block {
+
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        width: 100%;
+
+        gap: 6px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .side_block {
+
+        flex: 0 0 calc(50% - 3px) !important;
+
+        width: calc(50% - 3px) !important;
+
+        min-width: 0;
+
+        margin: 0;
+
+        padding: 0;
+
+    }
+
+
+    /* TITLE */
+
+    #title {
+
+        width: 100%;
+
+        text-align: center !important;
+
+        font-size: 1.7em;
+
+    }
+
+
+    #bio {
+
+        width: 100%;
+
+        text-align: center !important;
+
+        font-size: 1em;
+
+    }
+
+
+    /* COLUMN TITLES */
+
+    .side_block > h3 {
+
+        font-size: 0.9em;
+
+        text-align: center;
+
+    }
+
+
+    /* BUTTONS */
+
+    .about_entry {
+
+        width: 100%;
+
+        margin: 6px 0;
+
+        padding: 7px 5px;
+
+        font-size: 12px;
+
+    }
+
+
+    .about_entry h3,
+    .about_entry h5 {
+
+        font-size: 12px;
+
+        text-align: left;
+
+    }
+
+
+    /* LANGUAGE */
+
+    .console_corner {
+
+        font-size: 17px;
+
+        text-align: left;
+
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .screen_content {
+
+        padding: 15px 6px;
+
+    }
+
+
+    .console_content {
+
+        padding: 0 2px;
+
+    }
+
+
+    #title {
+
+        font-size: 1.45em;
+
+        text-align: center !important;
+
+    }
+
+
+    #bio {
+
+        font-size: 0.9em;
+
+        text-align: center !important;
+
+    }
+
+
+    .side_block > h3 {
+
+        font-size: 0.75em;
+
+    }
+
+
+    .about_entry {
+
+        margin: 5px 0;
+
+        padding: 6px 4px;
+
+    }
+
+
+    .about_entry h3,
+    .about_entry h5 {
+
+        font-size: 10px;
+
+    }
+
+
+    .console_corner {
+
+        font-size: 15px;
+
+    }
+
 }
