@@ -1,6 +1,132 @@
+```css
+@font-face {
+    font-family: console;
+    src: url(lucida-bsod.ttf);
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    font-family: console, 'Comic Sans MS';
+    color: white;
+    text-decoration: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    background-color: black;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+::selection {
+    background: white;
+    color: black;
+}
+
+
+/* =========================================
+   SCREEN
+========================================= */
+
+.screen_content {
+    background-color: black;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 30px;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.console_content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+}
+
+
+/* =========================================
+   LANGUAGE SWITCH
+========================================= */
+
+.console_corner {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+}
+
+.lang {
+    cursor: pointer;
+    user-select: none;
+}
+
+.lang:hover {
+    color: #00EE20;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+#title {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+#bio {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   TWO COLUMNS
+   ВСЕГДА ДВЕ КОЛОНКИ
+========================================= */
+
 .section_block {
     display: flex;
+
+    flex-direction: row;
+
     width: 100%;
+
     margin: 0;
     padding: 0;
 
@@ -10,76 +136,375 @@
 }
 
 .side_block {
-    width: 50%;
+    flex: 0 0 calc(50% - 5px);
+
+    width: calc(50% - 5px);
+
     min-width: 0;
 
     margin: 0;
     padding: 0;
+
+    text-align: center;
 }
 
 
-/* =================================
-   TELEPHONE
-   Две колонки НЕ убираем
-================================= */
+/* =========================================
+   COLUMN HEADINGS
+========================================= */
+
+.side_block > h3 {
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   BUTTONS / ENTRIES
+========================================= */
+
+.about_entry {
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0;
+    padding: 8px;
+
+    border: 2px solid white;
+    border-radius: 5px;
+
+    text-align: left;
+
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.about_entry h3,
+.about_entry h5 {
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+}
+
+.about_entry:hover {
+    background-color: rgb(53, 53, 53);
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+#skills {
+    text-align: left;
+    white-space: pre-line;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   BORDER
+========================================= */
+
+.border {
+    width: 100%;
+    height: 2px;
+
+    margin: 0;
+
+    background-color: white;
+}
+
+
+/* =========================================
+   RETRO SCREEN
+========================================= */
+
+.old_screen_overlay {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url(test_mask.png);
+
+    opacity: 15%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+.retro_screen_border {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    border: 30px solid transparent;
+
+    border-image-source: url(screen_transparent.png);
+    border-image-slice: 30;
+    border-image-outset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+}
+
+
+.retro_screen_glowing {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        radial-gradient(
+            rgba(150, 150, 150, 0.4),
+            transparent 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+/* =========================================
+   RETRO SCANLINES
+========================================= */
+
+.retro_console_effect {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent 1rem,
+            black 1.2rem
+        );
+
+    background-size: 200% 200%;
+
+    animation:
+        barberpole 500ms linear infinite alternate;
+
+    pointer-events: none;
+
+    z-index: 9998;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes barberpole {
+
+    100% {
+        background-position: 100% 100%;
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .screen_content {
+        padding: 25px 15px;
+    }
+
+    .console_content {
+        padding: 0 10px;
+    }
+
+}
+
+
+/* =========================================
+   PHONE
+   ВАЖНО:
+   ЗДЕСЬ ОСТАЮТСЯ 2 КОЛОНКИ
+========================================= */
 
 @media (max-width: 700px) {
 
+    .screen_content {
+        padding: 20px 8px;
+    }
+
+    .console_content {
+        width: 100%;
+
+        padding: 0 3px;
+    }
+
+
+    /* Две колонки */
+
     .section_block {
         display: flex;
+
         flex-direction: row;
 
         width: 100%;
-        gap: 5px;
+
+        gap: 6px;
 
         align-items: flex-start;
     }
 
+
+    /* Левая и правая = по половине */
+
     .side_block {
-        width: 50%;
+        flex: 0 0 calc(50% - 3px);
+
+        width: calc(50% - 3px);
+
         min-width: 0;
+
+        margin: 0;
+        padding: 0;
     }
 
-    .about_entry {
-        width: calc(100% - 6px);
 
-        margin: 3px;
+    /* Заголовок страницы */
+
+    #title {
+        font-size: 1.7em;
+
+        text-align: center;
+    }
+
+
+    #bio {
+        font-size: 1em;
+
+        text-align: center;
+    }
+
+
+    /* Заголовки колонок */
+
+    .side_block > h3 {
+        font-size: 0.9em;
+
+        text-align: center;
+    }
+
+
+    /* Кнопки */
+
+    .about_entry {
+        width: 100%;
+
+        margin: 6px 0;
 
         padding: 7px 5px;
 
-        font-size: 14px;
+        font-size: 12px;
     }
+
 
     .about_entry h3,
     .about_entry h5 {
-        font-size: 14px;
+        font-size: 12px;
+
+        text-align: left;
     }
 
-    .screen_content {
-        padding: 15px 8px;
-    }
 
-    .console_content {
-        padding: 0 3px;
+    /* Язык */
+
+    .console_corner {
+        font-size: 17px;
+
+        text-align: left;
     }
 
 }
 
 
-/* =================================
-   VERY SMALL TELEPHONES
-================================= */
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
 
 @media (max-width: 400px) {
 
+    .screen_content {
+        padding: 15px 6px;
+    }
+
+    .console_content {
+        padding: 0 2px;
+    }
+
+
+    #title {
+        font-size: 1.45em;
+    }
+
+
+    #bio {
+        font-size: 0.9em;
+    }
+
+
+    .side_block > h3 {
+        font-size: 0.75em;
+    }
+
+
     .about_entry {
-        font-size: 12px;
+        margin: 5px 0;
+
         padding: 6px 4px;
     }
 
+
     .about_entry h3,
     .about_entry h5 {
-        font-size: 12px;
+        font-size: 10px;
+    }
+
+
+    .console_corner {
+        font-size: 15px;
     }
 
 }
+```
