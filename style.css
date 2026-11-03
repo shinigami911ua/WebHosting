@@ -1,4 +1,3 @@
-```css
 @font-face {
     font-family: console;
     src: url(lucida-bsod.ttf);
@@ -11,13 +10,18 @@
 
 * {
     box-sizing: border-box;
+
     font-family: console, 'Comic Sans MS';
+
     color: white;
+
     text-decoration: none;
 }
 
+
 html,
 body {
+
     margin: 0;
     padding: 0;
 
@@ -25,70 +29,94 @@ body {
     min-height: 100%;
 
     background-color: black;
+
 }
+
 
 body {
+
     overflow-x: hidden;
+
 }
 
+
 ::selection {
+
     background: white;
+
     color: black;
+
 }
 
 
 /* =========================================
-   SCREEN
+   MAIN SCREEN
 ========================================= */
 
 .screen_content {
+
     background-color: black;
 
     width: 100%;
+
     min-height: 100vh;
 
     padding: 30px;
 
     font-size: 20px;
+
 }
 
 
 /* =========================================
-   MAIN CONTENT
+   CONTENT
 ========================================= */
 
 .console_content {
+
     width: 100%;
+
     max-width: 1000px;
 
     margin: 0 auto;
 
     padding: 0 20px;
+
 }
 
 
 /* =========================================
-   LANGUAGE SWITCH
+   LANGUAGE
 ========================================= */
 
 .console_corner {
+
     display: block;
 
     width: 100%;
 
     margin: 0;
+
     padding: 0;
 
     text-align: left;
+
 }
+
 
 .lang {
+
     cursor: pointer;
+
     user-select: none;
+
 }
 
+
 .lang:hover {
+
     color: #00EE20;
+
 }
 
 
@@ -97,30 +125,41 @@ body {
 ========================================= */
 
 #title {
+
+    display: block;
+
     width: 100%;
 
-    margin: 0;
+    margin: 0 auto;
+
     padding: 0;
 
-    text-align: center;
+    text-align: center !important;
+
 }
 
+
 #bio {
+
+    display: block;
+
     width: 100%;
 
-    margin: 0;
+    margin: 0 auto;
+
     padding: 0;
 
-    text-align: center;
+    text-align: center !important;
+
 }
 
 
 /* =========================================
    TWO COLUMNS
-   ВСЕГДА ДВЕ КОЛОНКИ
 ========================================= */
 
 .section_block {
+
     display: flex;
 
     flex-direction: row;
@@ -128,14 +167,18 @@ body {
     width: 100%;
 
     margin: 0;
+
     padding: 0;
 
     gap: 10px;
 
     align-items: flex-start;
+
 }
 
+
 .side_block {
+
     flex: 0 0 calc(50% - 5px);
 
     width: calc(50% - 5px);
@@ -143,66 +186,74 @@ body {
     min-width: 0;
 
     margin: 0;
+
     padding: 0;
 
     text-align: center;
+
 }
 
 
 /* =========================================
-   COLUMN HEADINGS
+   COLUMN TITLES
 ========================================= */
 
 .side_block > h3 {
+
     margin: 0;
+
     padding: 0;
 
     text-align: center;
+
 }
 
 
 /* =========================================
-   BUTTONS / ENTRIES
+   BUTTONS
 ========================================= */
 
 .about_entry {
+
     display: block;
 
     width: 100%;
 
     margin: 10px 0;
+
     padding: 8px;
 
     border: 2px solid white;
+
     border-radius: 5px;
 
     text-align: left;
 
     overflow: hidden;
+
     overflow-wrap: break-word;
+
     word-break: break-word;
+
 }
+
 
 .about_entry h3,
 .about_entry h5 {
+
     margin: 0;
+
     padding: 0;
 
     text-align: left;
+
 }
+
 
 .about_entry:hover {
+
     background-color: rgb(53, 53, 53);
-}
 
-
-/* =========================================
-   SKILLS
-========================================= */
-
-#skills {
-    text-align: left;
-    white-space: pre-line;
 }
 
 
@@ -211,15 +262,19 @@ body {
 ========================================= */
 
 a {
+
     display: block;
 
     width: 100%;
 
     margin: 0;
+
     padding: 0;
 
     color: inherit;
+
     text-decoration: none;
+
 }
 
 
@@ -228,12 +283,28 @@ a {
 ========================================= */
 
 .border {
+
     width: 100%;
+
     height: 2px;
 
     margin: 0;
 
     background-color: white;
+
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+#skills {
+
+    text-align: left;
+
+    white-space: pre-line;
+
 }
 
 
@@ -242,9 +313,11 @@ a {
 ========================================= */
 
 .old_screen_overlay {
+
     position: fixed;
 
     width: 100%;
+
     height: 100%;
 
     background-image: url(test_mask.png);
@@ -252,36 +325,45 @@ a {
     opacity: 15%;
 
     background-repeat: no-repeat;
+
     background-size: cover;
 
     pointer-events: none;
 
     z-index: 100;
+
 }
 
 
 .retro_screen_border {
+
     position: fixed;
 
     width: 100%;
+
     height: 100%;
 
     border: 30px solid transparent;
 
     border-image-source: url(screen_transparent.png);
+
     border-image-slice: 30;
+
     border-image-outset: 0;
 
     pointer-events: none;
 
     z-index: 9999;
+
 }
 
 
 .retro_screen_glowing {
+
     position: fixed;
 
     width: 100%;
+
     height: 100%;
 
     background-image:
@@ -293,6 +375,7 @@ a {
     pointer-events: none;
 
     z-index: 100;
+
 }
 
 
@@ -301,9 +384,11 @@ a {
 ========================================= */
 
 .retro_console_effect {
+
     position: fixed;
 
     width: 100%;
+
     height: 100%;
 
     background-image:
@@ -321,6 +406,7 @@ a {
     pointer-events: none;
 
     z-index: 9998;
+
 }
 
 
@@ -331,7 +417,9 @@ a {
 @keyframes barberpole {
 
     100% {
+
         background-position: 100% 100%;
+
     }
 
 }
@@ -344,11 +432,16 @@ a {
 @media (max-width: 900px) {
 
     .screen_content {
+
         padding: 25px 15px;
+
     }
 
+
     .console_content {
+
         padding: 0 10px;
+
     }
 
 }
@@ -356,80 +449,98 @@ a {
 
 /* =========================================
    PHONE
-   ВАЖНО:
-   ЗДЕСЬ ОСТАЮТСЯ 2 КОЛОНКИ
+   TWO COLUMNS STAY
 ========================================= */
 
 @media (max-width: 700px) {
 
     .screen_content {
+
         padding: 20px 8px;
+
     }
 
+
     .console_content {
+
         width: 100%;
 
         padding: 0 3px;
+
     }
 
 
-    /* Две колонки */
+    /* TWO COLUMNS */
 
     .section_block {
-        display: flex;
 
-        flex-direction: row;
+        display: flex !important;
+
+        flex-direction: row !important;
 
         width: 100%;
 
         gap: 6px;
 
         align-items: flex-start;
+
     }
 
 
-    /* Левая и правая = по половине */
-
     .side_block {
-        flex: 0 0 calc(50% - 3px);
 
-        width: calc(50% - 3px);
+        flex: 0 0 calc(50% - 3px) !important;
+
+        width: calc(50% - 3px) !important;
 
         min-width: 0;
 
         margin: 0;
+
         padding: 0;
+
     }
 
 
-    /* Заголовок страницы */
+    /* TITLE */
 
     #title {
+
+        width: 100%;
+
+        text-align: center !important;
+
         font-size: 1.7em;
 
-        text-align: center;
     }
 
 
     #bio {
+
+        width: 100%;
+
+        text-align: center !important;
+
         font-size: 1em;
 
-        text-align: center;
     }
 
 
-    /* Заголовки колонок */
+    /* COLUMN TITLES */
 
     .side_block > h3 {
+
         font-size: 0.9em;
 
         text-align: center;
+
     }
 
 
-    /* Кнопки */
+    /* BUTTONS */
 
     .about_entry {
+
         width: 100%;
 
         margin: 6px 0;
@@ -437,23 +548,28 @@ a {
         padding: 7px 5px;
 
         font-size: 12px;
+
     }
 
 
     .about_entry h3,
     .about_entry h5 {
+
         font-size: 12px;
 
         text-align: left;
+
     }
 
 
-    /* Язык */
+    /* LANGUAGE */
 
     .console_corner {
+
         font-size: 17px;
 
         text-align: left;
+
     }
 
 }
@@ -466,45 +582,65 @@ a {
 @media (max-width: 400px) {
 
     .screen_content {
+
         padding: 15px 6px;
+
     }
 
+
     .console_content {
+
         padding: 0 2px;
+
     }
 
 
     #title {
+
         font-size: 1.45em;
+
+        text-align: center !important;
+
     }
 
 
     #bio {
+
         font-size: 0.9em;
+
+        text-align: center !important;
+
     }
 
 
     .side_block > h3 {
+
         font-size: 0.75em;
+
     }
 
 
     .about_entry {
+
         margin: 5px 0;
 
         padding: 6px 4px;
+
     }
 
 
     .about_entry h3,
     .about_entry h5 {
+
         font-size: 10px;
+
     }
 
 
     .console_corner {
+
         font-size: 15px;
+
     }
 
 }
-```
