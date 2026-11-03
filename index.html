@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <title>NIGER - Home</title>
 
@@ -14,13 +15,16 @@
 
 <body>
 
+    <!-- Retro effects -->
     <div class="retro_screen_glowing"></div>
     <div class="retro_console_effect"></div>
     <div class="retro_screen_border"></div>
 
+
+    <!-- Main screen -->
     <div class="screen_content">
 
-        <!-- Переключатель языка -->
+        <!-- Language switch -->
         <div class="console_corner" id="langs">
             [
             <span id="RU" class="lang">RU</span>
@@ -29,14 +33,18 @@
             ]
         </div>
 
+
         <br>
+
 
         <div class="console_content">
 
+            <!-- Main title -->
             <h1 id="title">I am NIGER</h1>
 
             <br>
 
+            <!-- Subtitle -->
             <h3 id="bio">My Site</h3>
 
             <br>
@@ -45,43 +53,69 @@
 
             <br>
 
+
+            <!-- TWO COLUMNS -->
             <div class="section_block">
 
-                <!-- ЛЕВАЯ КОЛОНКА -->
+
+                <!-- =========================
+                     LEFT COLUMN
+                ========================== -->
+
                 <div class="side_block">
 
                     <h3 id="about">About Me</h3>
 
                     <br>
 
-                    <div class="about_entry">
-                        <h5 id="skill1">- Languages: Russian, Deutsch.</h5>
-                    </div>
 
                     <div class="about_entry">
-                        <h5 id="skill2">- Linux user.</h5>
+                        <h5 id="skill1">
+                            - Languages: Russian, German.
+                        </h5>
                     </div>
 
+
                     <div class="about_entry">
-                        <h5 id="skill3">- Programmer.</h5>
+                        <h5 id="skill2">
+                            - Linux user.
+                        </h5>
+                    </div>
+
+
+                    <div class="about_entry">
+                        <h5 id="skill3">
+                            - Programmer.
+                        </h5>
                     </div>
 
                 </div>
 
 
-                <!-- ПРАВАЯ КОЛОНКА -->
+                <!-- =========================
+                     RIGHT COLUMN
+                ========================== -->
+
                 <div class="side_block">
 
                     <h3 id="contacts">Contacts</h3>
 
                     <br>
 
+
                     <!-- Telegram bot -->
-                    <a href="https://t.me/YOUR_BOT" target="_blank" rel="noopener noreferrer">
+                    <a href="https://t.me/YOUR_BOT"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
                         <div class="about_entry">
-                            <h3 id="telegramBot">Telegram bot</h3>
+                            <h3 id="telegramBot">
+                                Telegram bot
+                            </h3>
                         </div>
+
                     </a>
+
 
                     <!-- Telegram group -->
                     <a href="https://t.me/+FWxDIxt5Jm1lNjEx"
@@ -89,10 +123,13 @@
                        rel="noopener noreferrer">
 
                         <div class="about_entry">
-                            <h3 id="telegramGroup">Telegram group</h3>
+                            <h3 id="telegramGroup">
+                                Telegram group
+                            </h3>
                         </div>
 
                     </a>
+
 
                     <!-- YouTube -->
                     <a href="https://youtube.com/@niger228bb?si=eh6GhuOBr6Zkjv0U"
@@ -100,7 +137,9 @@
                        rel="noopener noreferrer">
 
                         <div class="about_entry">
-                            <h3 id="youtube">YouTube</h3>
+                            <h3 id="youtube">
+                                YouTube
+                            </h3>
                         </div>
 
                     </a>
@@ -109,6 +148,7 @@
 
             </div>
 
+
             <br>
 
             <div class="border"></div>
@@ -116,69 +156,91 @@
             <br>
 
         </div>
+
     </div>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script>
 
         /* =========================
-           ЗВУК
-        ========================= */
+           SOUND
+        ========================== */
 
         const beep = new Audio("beep.mp3");
 
 
         /* =========================
-           ТЕКУЩИЙ ЯЗЫК
-        ========================= */
+           CURRENT LANGUAGE
+        ========================== */
 
         let current_lang = getBrowserLang();
 
 
         /* =========================
-           ПЕРЕВОДЫ
-        ========================= */
+           TRANSLATIONS
+        ========================== */
 
         const locale = {
 
             RU: {
+
                 title: "Я НИГЕР",
+
                 bio: "Мой сайт",
 
                 about: "Обо мне",
+
                 contacts: "Контакты",
 
                 skill1: "- Языки: русский, немецкий.",
+
                 skill2: "- Пользователь Linux.",
+
                 skill3: "- Программист.",
 
                 telegramBot: "Telegram бот",
+
                 telegramGroup: "Telegram группа",
+
                 youtube: "YouTube"
+
             },
 
+
             EN: {
+
                 title: "I am NIGER",
+
                 bio: "My Site",
 
                 about: "About Me",
+
                 contacts: "Contacts",
 
                 skill1: "- Languages: Russian, German.",
+
                 skill2: "- Linux user.",
+
                 skill3: "- Programmer.",
 
                 telegramBot: "Telegram bot",
+
                 telegramGroup: "Telegram group",
+
                 youtube: "YouTube"
+
             }
 
         };
 
 
         /* =========================
-           ЗАПУСК
-        ========================= */
+           PAGE LOAD
+        ========================== */
 
         window.addEventListener("DOMContentLoaded", function () {
 
@@ -194,44 +256,42 @@
 
 
         /* =========================
-           RU
-        ========================= */
+           RUSSIAN
+        ========================== */
 
-        document.getElementById("RU").addEventListener("click", function (event) {
-
-            event.stopPropagation();
+        document.getElementById("RU").addEventListener("click", function () {
 
             current_lang = "RU";
 
             updateLanguageInfo();
 
             beep.currentTime = 0;
-            beep.play().catch(() => {});
+
+            beep.play().catch(function () {});
 
         });
 
 
         /* =========================
-           EN
-        ========================= */
+           ENGLISH
+        ========================== */
 
-        document.getElementById("EN").addEventListener("click", function (event) {
-
-            event.stopPropagation();
+        document.getElementById("EN").addEventListener("click", function () {
 
             current_lang = "EN";
 
             updateLanguageInfo();
 
             beep.currentTime = 0;
-            beep.play().catch(() => {});
+
+            beep.play().catch(function () {});
 
         });
 
 
         /* =========================
-           ОБНОВЛЕНИЕ ЯЗЫКА
-        ========================= */
+           UPDATE LANGUAGE
+        ========================== */
 
         function updateLanguageInfo() {
 
@@ -242,29 +302,38 @@
             }
 
 
-            /* Подсветка активного языка */
+            /* Active language */
 
             document.getElementById("RU").style.color =
-                current_lang === "RU" ? "#00EE20" : "inherit";
+                current_lang === "RU"
+                    ? "#00EE20"
+                    : "inherit";
+
 
             document.getElementById("EN").style.color =
-                current_lang === "EN" ? "#00EE20" : "inherit";
+                current_lang === "EN"
+                    ? "#00EE20"
+                    : "inherit";
 
 
-            /* Изменение текста */
+            /* Update text */
 
             Object.keys(new_lang).forEach(function (id) {
 
-                const element = document.getElementById(id);
+                const element =
+                    document.getElementById(id);
 
                 if (element) {
-                    element.textContent = new_lang[id];
+
+                    element.textContent =
+                        new_lang[id];
+
                 }
 
             });
 
 
-            /* Заголовок страницы */
+            /* Browser tab title */
 
             document.title =
                 current_lang === "RU"
@@ -272,38 +341,59 @@
                     : "NIGER - Home";
 
 
-            /* HTML lang */
+            /* HTML language */
 
             document.documentElement.lang =
-                current_lang === "RU" ? "ru" : "en";
+                current_lang === "RU"
+                    ? "ru"
+                    : "en";
 
         }
 
 
         /* =========================
-           ЭФФЕКТ ПЕЧАТИ
-        ========================= */
+           TYPING EFFECT
+        ========================== */
 
-        async function typeText(id, text, interval = 100) {
+        async function typeText(
+            id,
+            text,
+            interval = 100
+        ) {
 
-            const element = document.getElementById(id);
+            const element =
+                document.getElementById(id);
 
             if (!element) {
                 return;
             }
 
-            for (let i = 0; i <= text.length; i++) {
 
-                element.textContent = text.substring(0, i);
+            for (
+                let i = 0;
+                i <= text.length;
+                i++
+            ) {
+
+                element.textContent =
+                    text.substring(0, i);
+
 
                 if (i < text.length) {
+
                     element.textContent += "|";
+
                 }
+
 
                 await sleep(interval);
 
+
                 if (i < text.length) {
-                    element.textContent = text.substring(0, i);
+
+                    element.textContent =
+                        text.substring(0, i);
+
                 }
 
             }
@@ -313,20 +403,22 @@
 
         /* =========================
            SLEEP
-        ========================= */
+        ========================== */
 
         function sleep(ms) {
 
             return new Promise(function (resolve) {
+
                 setTimeout(resolve, ms);
+
             });
 
         }
 
 
         /* =========================
-           ЯЗЫК БРАУЗЕРА
-        ========================= */
+           BROWSER LANGUAGE
+        ========================== */
 
         function getBrowserLang() {
 
@@ -334,6 +426,7 @@
                 navigator.language ||
                 navigator.userLanguage ||
                 "en";
+
 
             return /^ru/i.test(browserLang)
                 ? "RU"
@@ -344,4 +437,5 @@
     </script>
 
 </body>
+
 </html>
