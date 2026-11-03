@@ -1,141 +1,441 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-    <title>NIGER - Home</title>  
-    <link type="Image/x-icon" href="favicon.ico" rel="icon">  
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">  
-    <link rel="stylesheet" href="style.css">  
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">  
-    <meta charset="UTF-8">  
-</head>  
-<body>  
-    <div class="retro_screen_glowing"></div>  
-    <div class="retro_console_effect"></div>  
-    <div class="retro_screen_border"></div>  
-  
-    <div class="screen_content">  
-        <text class="console_corner" id="langs">  
-            [<text id="RU" class="lang">RU</text> / <text id="EN" class="lang">EN</text>]  
-        </text>  
-        <br>  
-        <div class="console_content">  
-            <h1 id="title">I am NIGER</h1>  
-            <br>  
-            <h3 id="linux<br>progra</h3>  
-            <br>  
-            <div class="border"></div>  
-            <br>  
-            <div class="section_block">  
-                <div class="side_block">  
-                    <h3 id="about">About Me</h3>  
-                    <br>  
-                    <h5 id="skills">  
-                        - Languages: Russian, Deutsch.<br><br>  
-                    </h5>  
-                </div>  
-              <div class="side_block">
-    <h3 id="contacts">Contacts</h3>
-                  
-    <!--Telegram bot-->
-    <a href="" target="_blank">
-        <div class="about_entry">
-            <h3>Telegram bot</h3>
-        </div>
-    </a>
-                  
-         <!--Telegram chat-->
-    <a href="https://t.me/+FWxDIxt5Jm1lNjEx" target="_blank">
-        <div class="about_entry">
-            <h3>Telegram chat</h3>
-        </div>
-    </a>
-                  
-       <!--YouTube-->
-    <a href="https://www.youtube.com/@niger228bb" target="_blank">
-        <div class="about_entry">
-            <h3>YouTube</h3>
-        </div>
-    </a>
+<!DOCTYPE html>
+<html lang="ru">
 
-            </div>  
-            <br>  
-            <div class="border"></div> 
-            <br>  
-        </div>  
-    </div>  
-  
-    <script>  
-        var current_lang = getBrowserLang(),  
-            beep = new Audio("beep.mp3"),  
-            locale = {  
-        RU: {
-        title: "Я Фанта",
-        bio: "Мой Сайт",
-        skills: "Переходник на GitHub\n\nПереходник на YouTube\n\nПереходник на Telegram канал",
-        about: "Обо мне",
-        contacts: "Заходи"
-    },
-        EN: {
-        title: "I am Fanta",
-        bio: "My Site",
-        skills: "GitHub adapter\n\nYouTubu channel adapter\n\nTelegram chanal adapter",
-        about: "About Me",
-        contacts: "Come in"
-    }
-                    };
-        function sleep(ms) {  
-            return new Promise(resolve => setTimeout(resolve, ms));  
-        }  
-  
-        window.onload = function () {  
-            typeText("title", getTranslationForLocale(current_lang, "title"));  
-            updateLanguageInfo();  
-        };  
-  
-        document.getElementById("langs").addEventListener("click", function () {  
-            let langs = Object.keys(locale);  
-            current_lang = langs[(langs.indexOf(current_lang) + 1) % langs.length];  
-            updateLanguageInfo();  
-            beep.play();  
-        });  
-  
-        async function typeText(id, text, interval = 100) {  
-            const element = document.getElementById(id);  
-            for (let i = 0; i <= text.length; i++) {  
-                element.textContent = text.substring(0, i);  
-                if (i < text.length)  
-                    element.textContent += "|";  
-                await sleep(interval);  
-                if (i < text.length)  
-                    element.textContent = text.substring(0, i);  
-            }  
-        }  
-  
-        async function updateLanguageInfo() {  
-            if (current_lang in locale) {  
-                let active = document.getElementsByClassName("lang");  
-                for (let i = 0; i < active.length; i++)  
-                    active[i].style.color = "inherit";  
-                let element = document.getElementById(current_lang);  
-                if (element)  
-                    element.style.color = "#00EE20";  
-                const new_lang = locale[current_lang];  
-                Object.keys(new_lang).forEach(id => {  
-                    const element = document.getElementById(id);  
-                    if (element) element.innerHTML = new_lang[id];  
-                });  
-                document.title = new_lang.title || document.title;  
-            }  
-        }  
-  
-        function getTranslationForLocale(lang, id) {  
-            return (lang in locale && id in locale[lang]) ? locale[lang][id] : undefined;  
-        }  
-  
-        function getBrowserLang() {  
-            return /ru/i.test(navigator.language || navigator.userLanguage) ? "RU" : "EN";  
-        }  
-    </script>  
-</body>  
+<head>
+    <title>NIGER - Home</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <!-- Retro effects -->
+    <div class="retro_screen_glowing"></div>
+    <div class="retro_console_effect"></div>
+    <div class="retro_screen_border"></div>
+
+
+    <!-- Main screen -->
+    <div class="screen_content">
+
+        <!-- Language switch -->
+        <div class="console_corner" id="langs">
+            [
+            <span id="RU" class="lang">RU</span>
+            /
+            <span id="EN" class="lang">EN</span>
+            ]
+        </div>
+
+
+        <br>
+
+
+        <div class="console_content">
+
+            <!-- Main title -->
+            <h1 id="title">I am NIGER</h1>
+
+            <br>
+
+            <!-- Subtitle -->
+            <h3 id="bio">My Site</h3>
+
+            <br>
+
+            <div class="border"></div>
+
+            <br>
+
+
+            <!-- TWO COLUMNS -->
+            <div class="section_block">
+
+
+                <!-- =========================
+                     LEFT COLUMN
+                ========================== -->
+
+                <div class="side_block">
+
+                    <h3 id="about">About Me</h3>
+
+                    <br>
+
+
+                    <div class="about_entry">
+                        <h5 id="skill1">
+                            - Languages: Russian, German.
+                        </h5>
+                    </div>
+
+
+                    <div class="about_entry">
+                        <h5 id="skill2">
+                            - Linux user.
+                        </h5>
+                    </div>
+
+
+                    <div class="about_entry">
+                        <h5 id="skill3">
+                            - Programmer.
+                        </h5>
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     RIGHT COLUMN
+                ========================== -->
+
+                <div class="side_block">
+
+                    <h3 id="contacts">Contacts</h3>
+
+                    <br>
+
+
+                    <!-- Telegram bot -->
+                    <a href="https://t.me/YOUR_BOT"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <div class="about_entry">
+                            <h3 id="telegramBot">
+                                Telegram bot
+                            </h3>
+                        </div>
+
+                    </a>
+
+
+                    <!-- Telegram group -->
+                    <a href="https://t.me/+FWxDIxt5Jm1lNjEx"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <div class="about_entry">
+                            <h3 id="telegramGroup">
+                                Telegram group
+                            </h3>
+                        </div>
+
+                    </a>
+
+
+                    <!-- YouTube -->
+                    <a href="https://youtube.com/@niger228bb?si=eh6GhuOBr6Zkjv0U"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <div class="about_entry">
+                            <h3 id="youtube">
+                                YouTube
+                            </h3>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <div class="border"></div>
+
+            <br>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           SOUND
+        ========================== */
+
+        const beep = new Audio("beep.mp3");
+
+
+        /* =========================
+           CURRENT LANGUAGE
+        ========================== */
+
+        let current_lang = getBrowserLang();
+
+
+        /* =========================
+           TRANSLATIONS
+        ========================== */
+
+        const locale = {
+
+            RU: {
+
+                title: "Я НИГЕР",
+
+                bio: "Мой сайт",
+
+                about: "Обо мне",
+
+                contacts: "Контакты",
+
+                skill1: "- Языки: русский, немецкий.",
+
+                skill2: "- Пользователь Linux.",
+
+                skill3: "- Программист.",
+
+                telegramBot: "Telegram бот",
+
+                telegramGroup: "Telegram группа",
+
+                youtube: "YouTube"
+
+            },
+
+
+            EN: {
+
+                title: "I am NIGER",
+
+                bio: "My Site",
+
+                about: "About Me",
+
+                contacts: "Contacts",
+
+                skill1: "- Languages: Russian, German.",
+
+                skill2: "- Linux user.",
+
+                skill3: "- Programmer.",
+
+                telegramBot: "Telegram bot",
+
+                telegramGroup: "Telegram group",
+
+                youtube: "YouTube"
+
+            }
+
+        };
+
+
+        /* =========================
+           PAGE LOAD
+        ========================== */
+
+        window.addEventListener("DOMContentLoaded", function () {
+
+            updateLanguageInfo();
+
+            typeText(
+                "title",
+                locale[current_lang].title,
+                100
+            );
+
+        });
+
+
+        /* =========================
+           RUSSIAN
+        ========================== */
+
+        document.getElementById("RU").addEventListener("click", function () {
+
+            current_lang = "RU";
+
+            updateLanguageInfo();
+
+            beep.currentTime = 0;
+
+            beep.play().catch(function () {});
+
+        });
+
+
+        /* =========================
+           ENGLISH
+        ========================== */
+
+        document.getElementById("EN").addEventListener("click", function () {
+
+            current_lang = "EN";
+
+            updateLanguageInfo();
+
+            beep.currentTime = 0;
+
+            beep.play().catch(function () {});
+
+        });
+
+
+        /* =========================
+           UPDATE LANGUAGE
+        ========================== */
+
+        function updateLanguageInfo() {
+
+            const new_lang = locale[current_lang];
+
+            if (!new_lang) {
+                return;
+            }
+
+
+            /* Active language */
+
+            document.getElementById("RU").style.color =
+                current_lang === "RU"
+                    ? "#00EE20"
+                    : "inherit";
+
+
+            document.getElementById("EN").style.color =
+                current_lang === "EN"
+                    ? "#00EE20"
+                    : "inherit";
+
+
+            /* Update text */
+
+            Object.keys(new_lang).forEach(function (id) {
+
+                const element =
+                    document.getElementById(id);
+
+                if (element) {
+
+                    element.textContent =
+                        new_lang[id];
+
+                }
+
+            });
+
+
+            /* Browser tab title */
+
+            document.title =
+                current_lang === "RU"
+                    ? "НИГЕР - Главная"
+                    : "NIGER - Home";
+
+
+            /* HTML language */
+
+            document.documentElement.lang =
+                current_lang === "RU"
+                    ? "ru"
+                    : "en";
+
+        }
+
+
+        /* =========================
+           TYPING EFFECT
+        ========================== */
+
+        async function typeText(
+            id,
+            text,
+            interval = 100
+        ) {
+
+            const element =
+                document.getElementById(id);
+
+            if (!element) {
+                return;
+            }
+
+
+            for (
+                let i = 0;
+                i <= text.length;
+                i++
+            ) {
+
+                element.textContent =
+                    text.substring(0, i);
+
+
+                if (i < text.length) {
+
+                    element.textContent += "|";
+
+                }
+
+
+                await sleep(interval);
+
+
+                if (i < text.length) {
+
+                    element.textContent =
+                        text.substring(0, i);
+
+                }
+
+            }
+
+        }
+
+
+        /* =========================
+           SLEEP
+        ========================== */
+
+        function sleep(ms) {
+
+            return new Promise(function (resolve) {
+
+                setTimeout(resolve, ms);
+
+            });
+
+        }
+
+
+        /* =========================
+           BROWSER LANGUAGE
+        ========================== */
+
+        function getBrowserLang() {
+
+            const browserLang =
+                navigator.language ||
+                navigator.userLanguage ||
+                "en";
+
+
+            return /^ru/i.test(browserLang)
+                ? "RU"
+                : "EN";
+
+        }
+
+    </script>
+
+</body>
+
 </html>
-
